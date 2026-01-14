@@ -1,5 +1,4 @@
 import Navbar from "./components/Navbar";
-import Nav from "./components/Nav";
 import ClientWrapper from "./components/ClientWrapper";
 
 async function fetchPokemon(limit = 20) {

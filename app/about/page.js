@@ -1,4 +1,15 @@
+import Navbar from "../components/Navbar";
+
 export default function AboutPage() {
+  return (
+    <main className="p-6 space-y-6 min-h-screen">
+      <Navbar />
+      <AboutContent />
+    </main>
+  );
+}
+
+function AboutContent() {
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow">
       <h1 className="text-xl  pixel-font text-black font-bold mb-4">About This Project</h1>
