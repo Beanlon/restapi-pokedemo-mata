@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import Nav from "./components/Nav";
 import ClientWrapper from "./components/ClientWrapper";
 
 async function fetchPokemon(limit = 20) {
@@ -19,8 +20,12 @@ export default async function Page() {
   const data = await fetchPokemon(12);
 
   return (
-    <main className="p-6 space-y-6">
-      <ClientWrapper data={data} />
-    </main>
+    <>
+
+      <main className="p-6 space-y-6">
+        <Navbar />
+        <ClientWrapper data={data} />
+      </main>
+    </>
   );
 }

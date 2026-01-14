@@ -3,6 +3,24 @@ import { useState } from "react";
 
 export default function PokemonCard({ pokemon }) {
   const [showStats, setShowStats] = useState(false);
+  const getTypeColor = (type) => {
+    switch (type) {
+      case "fire":
+        return "!bg-orange-500";  
+      case "water":
+        return "!bg-blue-400"; 
+      case "grass":
+        return "!bg-lime-400";  
+      case "flying":
+        return "!bg-sky-200";  
+      case "bug":
+        return "!bg-lime-500";  
+      case "poison":
+        return "!bg-purple-500";
+      default:
+        return "bg-gray-300";
+    }
+  }
 
   return (
     <div className="pixel-panel text-black flex flex-col gap-3 items-center p-4">
@@ -14,7 +32,7 @@ export default function PokemonCard({ pokemon }) {
 
       <div className="flex flex-wrap justify-center gap-2">
         {pokemon.types.map((t) => (
-          <span key={t.type.name} className="pixel-badge capitalize">
+          <span key={t.type.name} className={`pixel-badge capitalize ${getTypeColor(t.type.name)}`}>
             {t.type.name}
           </span>
         ))}
