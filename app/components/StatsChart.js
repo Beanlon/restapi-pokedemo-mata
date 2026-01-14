@@ -37,7 +37,7 @@ export default function StatsChart({ pokemon }) {
   };
 
   return (
-    <div className="p-4 bg-white rounded-md shadow">
+    <div className="p-4 pixel-panel">
       <Radar data={data} />
     </div>
   );

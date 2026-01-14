@@ -22,7 +22,7 @@ export default function ClientWrapper({ data }) {
 
       {filtered.length === 1 && (
         <>
-          <h3 className="text-xl font-semibold mt-6">Stats Chart</h3>
+          <h3 className="pixel-heading text-base mt-6">Stats Chart</h3>
           <StatsChart pokemon={filtered[0]} />
         </>
       )}

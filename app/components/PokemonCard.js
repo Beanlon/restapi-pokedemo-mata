@@ -5,33 +5,38 @@ export default function PokemonCard({ pokemon }) {
   const [showStats, setShowStats] = useState(false);
 
   return (
-    <div className="border rounded-xl shadow p-4 bg-white">
-      <img src={pokemon.sprites.front_default} className="h-24 mx-auto" />
-      
-      <h3 className="text-lg text-black font-semibold text-center capitalize">
+    <div className="pixel-panel text-black flex flex-col gap-3 items-center p-4">
+      <img src={pokemon.sprites.front_default} className="h-24 w-24 pixelated" alt={`${pokemon.name} sprite`} />
+
+      <h3 className="pixel-heading text-sm text-center">
         {pokemon.name}
       </h3>
-      
-      <p className="text-center text-black text-sm">
-        Type: {pokemon.types.map(t => t.type.name).join(", ")}
-      </p>
+
+      <div className="flex flex-wrap justify-center gap-2">
+        {pokemon.types.map((t) => (
+          <span key={t.type.name} className="pixel-badge capitalize">
+            {t.type.name}
+          </span>
+        ))}
+      </div>
 
       <button
         onClick={() => setShowStats(!showStats)}
-        className="mt-2 px-3 py-1 bg-blue-600 rounded-md text-white rounded w-full transition-all duration-200 hover:bg-blue-700"
+        className="pixel-button pixel-font text-xs sm:text-sm"
       >
         {showStats ? "Hide Stats" : "Show Stats"}
       </button>
 
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`w-full overflow-hidden transition-all duration-300 ease-in-out ${
           showStats ? "max-h-96 opacity-100 mt-2" : "max-h-0 opacity-0"
         }`}
       >
-        <ul className="text-sm text-black">
+        <ul className="pixel-font text-xs sm:text-sm text-black space-y-1 font-mono">
           {pokemon.stats.map((s) => (
-            <li key={s.stat.name}>
-              {s.stat.name}: {s.base_stat}
+            <li key={s.stat.name} className="flex justify-between">
+              <span className="capitalize">{s.stat.name}</span>
+              <span>{s.base_stat}</span>
             </li>
           ))}
         </ul>
